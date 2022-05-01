@@ -9,7 +9,13 @@ import com.example.mythirdapplication.domain.repos.OnBoardingRepos
 import com.example.mythirdapplication.domain.repos.ServerRequestRepos
 import com.example.mythirdapplication.domain.use_cases.UseCase
 import com.example.mythirdapplication.domain.use_cases.get_locale.GetLocaleUseCase
+import com.example.mythirdapplication.domain.use_cases.get_news.GetNewsUseCase
 import com.example.mythirdapplication.domain.use_cases.get_onboarding.GetOnBoardingUseCase
+import com.example.mythirdapplication.domain.use_cases.get_stadiums.GetStadiumsUseCase
+import com.example.mythirdapplication.domain.use_cases.get_tourneys.GetTourneysUseCase
+import com.example.mythirdapplication.domain.use_cases.load_news.LoadNewsUseCase
+import com.example.mythirdapplication.domain.use_cases.load_stadiums.LoadStadiumsUseCase
+import com.example.mythirdapplication.domain.use_cases.load_tourneys.LoadTourneysUseCase
 import com.example.mythirdapplication.domain.use_cases.send_request.SendRequestUseCase
 import com.example.mythirdapplication.domain.use_cases.set_onboarding.SetOnBoardingUseCase
 import dagger.Module
@@ -48,7 +54,13 @@ object ReposModule {
             getOnBoardingUseCase = GetOnBoardingUseCase(repository = repository),
             setOnBoardingUseCase = SetOnBoardingUseCase(repository = repository),
             getLocaleUseCase = GetLocaleUseCase(repository = repository),
-            sendRequestUseCase = SendRequestUseCase(repository = repository)
+            sendRequestUseCase = SendRequestUseCase(repository = repository),
+            loadNewsUseCase = LoadNewsUseCase(repository = repository),
+            loadStadiumsUseCase = LoadStadiumsUseCase(repository = repository),
+            loadTourneysUseCase = LoadTourneysUseCase(repository = repository),
+            getNewsUseCase = GetNewsUseCase(repository = repository),
+            getStadiumsUseCase = GetStadiumsUseCase(repository = repository),
+            getTourneysUseCase = GetTourneysUseCase(repository = repository)
         )
     }
 }

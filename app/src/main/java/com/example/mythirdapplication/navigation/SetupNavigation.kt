@@ -2,6 +2,7 @@ package com.example.mythirdapplication.navigation
 
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
@@ -9,8 +10,15 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import coil.annotation.ExperimentalCoilApi
+import com.example.mythirdapplication.presentation.screens.HomeScreen
+import com.example.mythirdapplication.presentation.screens.chrome.ChromeScreen
+import com.example.mythirdapplication.presentation.screens.splash.SplashScreen
+import com.example.mythirdapplication.presentation.screens.welcome.WelcomeScreen
+import com.google.accompanist.pager.ExperimentalPagerApi
 
 
+@ExperimentalMaterialApi
+@ExperimentalPagerApi
 @ExperimentalFoundationApi
 @ExperimentalAnimationApi
 @ExperimentalCoilApi
@@ -25,17 +33,17 @@ fun SetupNavigation(
         composable(
             route = SetupScreens.Splash.route
         ) {
-            TODO()
+            SplashScreen(navController = navController)
         }
         composable(
             route = SetupScreens.Welcome.route
         ) {
-            TODO()
+            WelcomeScreen(navController = navController)
         }
         composable(
             route = SetupScreens.Home.route
         ) {
-            TODO()
+            HomeScreen()
         }
         composable(
             route = SetupScreens.Chrome.route,
@@ -45,7 +53,9 @@ fun SetupNavigation(
                 type = NavType.StringType
             })
         ) {
-            TODO()
+            ChromeScreen(
+                navController = navController
+            )
         }
     }
 
