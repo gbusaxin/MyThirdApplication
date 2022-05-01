@@ -2,6 +2,8 @@ package com.example.mythirdapplication.di
 
 import android.content.Context
 import androidx.room.Room
+import com.example.mythirdapplication.data.local.AppDatabase
+import com.example.mythirdapplication.utils.Constants.DB_NAME
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -13,17 +15,17 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object RoomModule {
 
-//    @Provides
-//    @Singleton
-//    fun provideRoomDb(
-//        @ApplicationContext context: Context
-//    ): AppDatabase {
-//        return Room.databaseBuilder(
-//            context,
-//            AppDatabase::class.java,
-//            DB_NAME
-//        ).fallbackToDestructiveMigration()
-//            .build()
-//    }
+    @Provides
+    @Singleton
+    fun provideRoomDb(
+        @ApplicationContext context: Context
+    ): AppDatabase {
+        return Room.databaseBuilder(
+            context,
+            AppDatabase::class.java,
+            DB_NAME
+        ).fallbackToDestructiveMigration()
+            .build()
+    }
 
 }
