@@ -1,8 +1,8 @@
-package com.example.mythirdapplication.presentation.screens.home.news
+package com.example.mythirdapplication.presentation.screens.home.stadium
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.mythirdapplication.domain.models.NewsDTO
+import com.example.mythirdapplication.domain.models.StadiumDTO
 import com.example.mythirdapplication.domain.use_cases.UseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -13,20 +13,21 @@ import java.util.*
 import javax.inject.Inject
 
 @HiltViewModel
-class NewsViewModel @Inject constructor(
+class StadiumViewModel @Inject constructor(
     useCase: UseCase
 ) : ViewModel() {
 
+    private val _stadiumsListState = MutableStateFlow<List<StadiumDTO>>(Collections.emptyList())
+    val stadiumsListState: Flow<List<StadiumDTO>> = _stadiumsListState
 
-    private var _newsList = MutableStateFlow<List<NewsDTO>>(Collections.emptyList())
-    val newsList: Flow<List<NewsDTO>> = _newsList
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
-            useCase.loadNewsUseCase()
-            useCase.getNewsUseCase().collect {
-                _newsList.value = it
+            useCase.loadStadiumsUseCase()
+            useCase.getStadiumsUseCase().collect {
+                _stadiumsListState.value = it
             }
+
         }
     }
 
