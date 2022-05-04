@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/ic_door.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_error.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_handshake.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_placeholder.xml" value="0.1" />
       </map>
     </option>

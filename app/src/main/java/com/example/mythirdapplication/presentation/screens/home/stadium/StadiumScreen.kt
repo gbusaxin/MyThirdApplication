@@ -21,8 +21,6 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
 import com.example.mythirdapplication.R
-import com.example.mythirdapplication.domain.models.StadiumDTO
-import com.example.mythirdapplication.presentation.screens.home.news.ExpandableCard
 import com.example.mythirdapplication.ui.theme.MEDIUM_PADDING
 import com.example.mythirdapplication.ui.theme.SMALL_PADDING
 import com.example.mythirdapplication.ui.theme.Shapes
@@ -47,11 +45,12 @@ fun StadiumScreen(
         ) {
             it?.let { stadium ->
                 StadiumItem(
-                    name = stadium.name?:"",
-                    capacity = stadium.capacity?:"",
-                    image = stadium.image?:"",
-                    city = stadium.city?:"",
-                    country = stadium.country?:""
+                    name = stadium.name ?: "",
+                    capacity = stadium.capacity ?: "",
+                    image = stadium.image ?: "",
+                    city = stadium.city ?: "",
+                    info = stadium.info ?: "",
+                    country = stadium.country ?: ""
                 )
             }
         }
@@ -65,8 +64,9 @@ fun StadiumItem(
     name: String,
     capacity: String,
     image: String,
-    city:String,
-    country:String
+    city: String,
+    info: String,
+    country: String
 ) {
 
     val painter = rememberImagePainter(data = image) {
@@ -99,24 +99,30 @@ fun StadiumItem(
                 fontSize = MaterialTheme.typography.h6.fontSize,
                 fontWeight = FontWeight.Bold
             )
-            Text(
-                text = country,
-                fontSize = MaterialTheme.typography.h6.fontSize,
-                fontWeight = FontWeight.Bold
-            )
             Row {
+                Text(
+                    modifier = Modifier.weight(1f),
+                    text = country,
+                    fontSize = MaterialTheme.typography.h6.fontSize,
+                    fontWeight = FontWeight.Bold
+                )
                 Text(
                     modifier = Modifier.weight(1f),
                     text = city,
                     fontSize = MaterialTheme.typography.subtitle1.fontSize,
                     fontWeight = FontWeight.Bold
                 )
-                Text(
-                    text = capacity,
-                    fontSize = MaterialTheme.typography.subtitle1.fontSize,
-                    fontWeight = FontWeight.Normal
-                )
             }
+            Text(
+                text = capacity,
+                fontSize = MaterialTheme.typography.subtitle1.fontSize,
+                fontWeight = FontWeight.Normal
+            )
+            Text(
+                text = info,
+                fontSize = MaterialTheme.typography.subtitle2.fontSize,
+                fontWeight = FontWeight.Normal
+            )
         }
     }
 }

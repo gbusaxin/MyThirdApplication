@@ -1,12 +1,13 @@
 package com.example.mythirdapplication.domain.models
 
+import androidx.annotation.Keep
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.Expose
 
 import com.google.gson.annotations.SerializedName
 
-
+@Keep
 @Entity(tableName = "stadium_table")
 data class StadiumDTO(
     @PrimaryKey(autoGenerate = true)

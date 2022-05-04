@@ -1,6 +1,7 @@
 package com.example.mythirdapplication.utils
 
 import android.app.Application
+import com.onesignal.OneSignal
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
@@ -13,11 +14,11 @@ class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        TODO()
-//        OneSignal.setLogLevel(OneSignal.LOG_LEVEL.VERBOSE, OneSignal.LOG_LEVEL.NONE);
-//
-//        OneSignal.initWithContext(this)
-//        OneSignal.setAppId(ONESIGNAL_APP_ID)
+        OneSignal.setLogLevel(OneSignal.LOG_LEVEL.VERBOSE, OneSignal.LOG_LEVEL.NONE);
+
+        OneSignal.initWithContext(this)
+        OneSignal.setAppId(ONESIGNAL_APP_ID)
+
     }
 
 }

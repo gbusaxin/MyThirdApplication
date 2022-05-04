@@ -7,6 +7,9 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import coil.annotation.ExperimentalCoilApi
+import com.example.mythirdapplication.presentation.screens.home.news.NewsScreen
+import com.example.mythirdapplication.presentation.screens.home.stadium.StadiumScreen
+import com.example.mythirdapplication.presentation.screens.home.tourney.TourneyScreen
 import com.google.accompanist.pager.ExperimentalPagerApi
 
 @ExperimentalFoundationApi
@@ -24,17 +27,17 @@ fun BottomNav(
         composable(
             route = BottomNavigationScreens.News.route
         ){
-            TODO()
+            NewsScreen()
         }
         composable(
             route = BottomNavigationScreens.Stadiums.route
         ){
-            TODO()
+            StadiumScreen()
         }
         composable(
             route = BottomNavigationScreens.Tourney.route
         ){
-            TODO()
+            TourneyScreen()
         }
     }
 }
